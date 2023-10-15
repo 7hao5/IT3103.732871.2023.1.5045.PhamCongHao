@@ -1,10 +1,14 @@
 package JavaBasics;
+// Phạm Công Hào_20215045
 
 import javax.swing.JOptionPane;
 
 public class ChoosingOption {
     public static void main(String[] args) {
+    	
+    	// tạo biến lưu 2 giá trị Yes và No
         Object[] options = {"Yes", "No"};
+        
         int option = JOptionPane.showOptionDialog(
             null,
             "Do you want to change to the first class ticket?",

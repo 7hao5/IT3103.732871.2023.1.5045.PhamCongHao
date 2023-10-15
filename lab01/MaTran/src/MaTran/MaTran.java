@@ -1,4 +1,5 @@
 package MaTran;
+// Phạm Công Hào_20215045
 
 import java.util.Scanner;
 
@@ -35,6 +36,7 @@ public class MaTran {
 		inMaTran(soHang, soCot, maTranKetQua);
 	}
 	
+	// Hàm nhập dữ liệu cho ma trận 
 	public static double[][] nhapDuLieuMaTran(int soHang, int soCot, double arr[][]) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -48,6 +50,7 @@ public class MaTran {
 		return arr;
 	}
 	
+	// Hàm cộng hai ma trận 
 	public static double[][] congHaiMaTran(int soHang, int soCot, double arr1[][], double arr2[][], double arr3[][]){
 		
 		for(int i=0; i<soHang; i++) {
@@ -60,6 +63,7 @@ public class MaTran {
 		return arr3;
 	}
 	
+	// Hàm in ma trận
 	public static void inMaTran(int soHang, int soCot, double arr[][]) {
 		
 		for(int i=0; i<soHang; i++) {

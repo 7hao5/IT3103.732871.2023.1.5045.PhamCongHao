@@ -1,4 +1,5 @@
 package NgayThangNam;
+// Phạm Công Hào_20215045
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -8,9 +9,11 @@ public class soNgayTrongThang {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
+		// str lưu câu trả lời số ngày trong 1 tháng bất kỳ 
 		String strMonth, strYear;
 		String str = "";
-			
+		
+		// Sử dụng vòng lặp yêu cầu người dùng nhập lại nếu như nhập sai
 		do {
 			
 			System.out.println("Nhap thang va nam ");
@@ -20,7 +23,8 @@ public class soNgayTrongThang {
 			strYear = sc.nextLine();
 			
 			int thang, nam;
-			
+		
+			// tách lấy tháng và năm có trong String strMonth, strYear
 			thang = extractNumber(strMonth);
 			nam = extractNumber(strYear);
 			
@@ -30,6 +34,8 @@ public class soNgayTrongThang {
 				str = "";
 			}else {
 				switch (thang) {
+				
+				// thang=[1,3,5,7,8,10,12] => có 31 ngày 
 					case 1: 
 					case 3:
 					case 5:
@@ -41,6 +47,7 @@ public class soNgayTrongThang {
 						str = "31 Ngay";
 						break;
 					}
+				// thang=[4,6,9] => co 30 ngày 
 					case 4:
 					case 6:
 					case 9:
@@ -48,6 +55,9 @@ public class soNgayTrongThang {
 						str = "30 Ngay";
 						break;
 					}
+				// thang = 2;
+				// năm nhuận => có 29 ngày 
+				// không nhuận => 28 ngày 
 					case 2:
 					{
 						if((nam % 4 == 0 && nam % 100 !=0) || nam % 400 ==0 ) {
@@ -68,17 +78,25 @@ public class soNgayTrongThang {
 		System.out.println("Co "+ str);
 	}
 	
+	// Hàm extractNumber tách lấy số co strong 1 chuỗi được đưa vào 
     public static int extractNumber(String text) {
-        Pattern pattern = Pattern.compile("\\d+"); // \\d+ tương ứng với một hoặc nhiều chữ số
+    	
+    	// \\d+ tương ứng với một hoặc nhiều chữ số
+        Pattern pattern = Pattern.compile("\\d+"); 
         Matcher matcher = pattern.matcher(text);
         
         if (matcher.find()) {
-            String numberStr = matcher.group(); // Lấy chuỗi con khớp
-            int value = Integer.parseInt(numberStr); // Chuyển chuỗi thành số nguyên
+        	
+        	// Lấy chuỗi con khớp
+            String numberStr = matcher.group(); 
+            
+            // Chuyển chuỗi thành số nguyên
+            int value = Integer.parseInt(numberStr); 
             return value;
         } else {
+        	
             // Trường hợp không tìm thấy số trong chuỗi
-            return 0; // Hoặc bạn có thể sử dụng giá trị mặc định khác tùy theo nhu cầu
+            return 0;
         }
     }
 }
